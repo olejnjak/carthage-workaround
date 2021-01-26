@@ -1,0 +1,23 @@
+{
+  "name": "carthage-workaround",
+  "version": "1.0.0",
+  "description": "GitHub action performing workaround so Carthage is capable of building dependencies without M1 arch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olejnjak/carthage-workaround.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olejnjak/carthage-workaround/issues"
+  },
+  "homepage": "https://github.com/olejnjak/carthage-workaround#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6"
+  }
+}

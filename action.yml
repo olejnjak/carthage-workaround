@@ -1,0 +1,9 @@
+name: 'Carthage workaround'
+description: 'Action that allows Carthage to build using Xcode without M1 architecture'
+inputs:
+  action:
+    description: 'Carthage action that should be performed'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
