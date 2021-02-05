@@ -17,7 +17,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: olejnjak/carthage-workaround@main
+      - uses: olejnjak/carthage-workaround@v1
         with:
           action: bootstrap --platform iOS --cache-builds
 ```
