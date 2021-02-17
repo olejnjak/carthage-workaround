@@ -28,7 +28,7 @@ async function runCarthageWorkaround(action) {
 
 async function main() {
     const action = core.getInput('action')
-    const force = core.getInput('force')
+    const force = core.getInput('force').toLowerCase() === "true"
 
     if (force) {
         core.info("Forced run of workaround script")
