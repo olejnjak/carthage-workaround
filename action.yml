@@ -4,6 +4,10 @@ inputs:
   action:
     description: 'Carthage action that should be performed'
     required: true
+  force:
+    description: 'Force run Carthage workaround script even though it might not be necessary (e.g. building using Xcode 11)'
+    required: false
+    default: false
 runs:
   using: 'node12'
   main: 'index.js'
