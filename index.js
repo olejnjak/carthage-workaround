@@ -1,7 +1,7 @@
 const core = require('@actions/core')
 const exec = require('@actions/exec')
 
-function execForResult(cmd, args) {
+async function execForResult(cmd, args) {
     var myOutput = ""
     var myError = ""
 
@@ -20,7 +20,7 @@ function execForResult(cmd, args) {
     return myOutput
 }
 
-function runCarthageWorkaround() {
+async function runCarthageWorkaround() {
     core.info("Running workaround script with parameters:")
     core.info(`\t${action}`)
     await exec.exec(`${__dirname}/carthage.sh ${action}`)
