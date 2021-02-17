@@ -20,7 +20,7 @@ async function execForResult(cmd, args) {
     return myOutput
 }
 
-async function runCarthageWorkaround() {
+async function runCarthageWorkaround(action) {
     core.info("Running workaround script with parameters:")
     core.info(`\t${action}`)
     await exec.exec(`${__dirname}/carthage.sh ${action}`)
@@ -32,7 +32,7 @@ async function main() {
 
     if (force) {
         core.info("Forced run of workaround script")
-        runCarthageWorkaround()
+        await runCarthageWorkaround(action)
         return
     }
 
@@ -41,7 +41,7 @@ async function main() {
     
     if (xcodeVersion >= 12 && !usesXCFrameworks) {
         core.info(`Using Xcode ${xcodeVersion} and not using --use-xcframeworks`)
-        runCarthageWorkaround()
+        await runCarthageWorkaround(action)
     } else {
         core.info(`Using Xcode ${xcodeVersion} or using --use-xcframeworks`)
         await exec.exec(`carthage ${action}`)
