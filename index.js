@@ -36,8 +36,8 @@ async function main() {
         return
     }
 
-    const xcodeBuildOutput = execForResult("xcodebuild", ["-version"])
-    const xcodeVersion = parseFloat((xcodeBuildOutput.split('\n')[0]).split(' ')[1])
+    const xcodeBuildOutput = await execForResult("xcodebuild", ["-version"])
+    const xcodeVersion = parseFloat(xcodeBuildOutput.split('\n')[0].split(' ')[1])
     const usesXCFrameworks = action.includes("--use-xcframeworks")
     
     if (xcodeVersion >= 12 && !usesXCFrameworks) {
