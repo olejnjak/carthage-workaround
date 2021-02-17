@@ -34,8 +34,9 @@ async function main() {
     }
 
     const xcodeVersion = parseFloat(execForResult("xcodebuild -version | head -n1 | cut -f2 -d' '", []))
+    const usesXCFrameworks = action.includes("--use-xcframeworks")
     
-    if (xcodeVersion >= 12) {
+    if (xcodeVersion >= 12 && !usesXCFrameworks) {
         runCarthageWorkaround()
     } else {
         await exec.exec(`carthage ${action}`)
